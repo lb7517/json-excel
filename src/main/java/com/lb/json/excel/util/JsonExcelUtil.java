@@ -24,7 +24,6 @@ public class JsonExcelUtil {
             for(int i = 0; i< headers.length; i++){//表头赋值
                 row1.createCell(i).setCellValue(headers[i]);
             }
-//            System.out.println("row1:"+row1);
             for(int i = 0; i< headers.length; i++){//表头赋值
                 row1.createCell(i).setCellValue(headers[i]);
             }
@@ -59,9 +58,6 @@ public class JsonExcelUtil {
             // 获取第一个sheet
             sheet = wb.getSheetAt(0);
             JSONArray jsonArray = new JSONArray();
-           /* for(Row row: sheet){
-                System.out.println("row: "+row);
-            }*/
             // 获取第一行,即标题
             Row row1 = sheet.getRow(0);
             // 获取最大行数
@@ -76,7 +72,7 @@ public class JsonExcelUtil {
                     Cell cell = row2.getCell(j);
                     // 注意区分类型，否者有些显示会异常(如为空)
                     switch (cell.getCellType()){
-                        // 注意次数不能加类名,即不能写成CellType.NUMERIC
+                        // 注意此处不能加类名,即不能写成CellType.NUMERIC
                         case NUMERIC: {
                             map.put(row1.getCell(j).getStringCellValue(), cell.getNumericCellValue());
                             break;
